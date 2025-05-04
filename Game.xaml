@@ -1,0 +1,26 @@
+﻿<Page x:Class="Snake.Game"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Snake"
+      mc:Ignorable="d" 
+      d:DesignHeight="769" d:DesignWidth="1389"
+      Title="Game" Focusable="True" KeyDown="Window_KeyDown" x:Name="Zalp">
+    <Grid Background="{DynamicResource BackGround}" Focusable="False">
+        <TextBlock x:Name="ScoreTextBlock" Visibility="Hidden" TextAlignment="Center"
+                   HorizontalAlignment="Right" VerticalAlignment="Top" Margin="6" 
+                   Background="{DynamicResource ButtonColor}"  Height="40" Width="200"
+                   Foreground="{DynamicResource Text}" FontSize="20">
+            <TextBlock.Text>Score: 0</TextBlock.Text></TextBlock>
+
+        <Canvas Focusable="False" Height="600" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center"  x:Name="GameCanvas"/>
+
+        <Button Click="StartGame_MouseDown" Background="{DynamicResource ButtonColor}" x:Name="tbStart" Height="120" Width="120">
+            <Image x:Name="StartGame"  Source="pack://application:,,,/ButtonImage/StartButton.png" Height="100" Width="100" ></Image>
+        </Button>
+        <Button Background="{DynamicResource ButtonColor}" Click="Image_MouseDown" x:Name="tbRestart" Visibility="Hidden" Height="120" Width="120">
+            <Image Visibility="Hidden"  x:Name="RestartButton" Width="100" Height="100" Source="pack://application:,,,/ButtonImage/Again.png"></Image>
+        </Button>
+    </Grid>
+</Page>

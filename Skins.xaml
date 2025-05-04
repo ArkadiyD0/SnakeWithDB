@@ -1,0 +1,16 @@
+﻿<Page x:Class="Snake.Skins"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Snake"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1389"
+      Title="Skins"  Focusable="True" KeyDown="Page_KeyDown" x:Name="skins">
+    <Grid Background="{DynamicResource BackGround}">
+        <TextBlock x:Name="TB_skin" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" Background="{DynamicResource ButtonColor}" Margin="15" Height="50" Width="300" Foreground="{DynamicResource Text}" FontSize="35" FontFamily="italic" FontWeight="SemiBold" Text="Скин #1"></TextBlock>
+        <Canvas x:Name="SkinCanvas" Height="200" Width="300"></Canvas>
+        <Image Margin="0,0,30,0" MouseDown="Image_MouseDown" Height="100" HorizontalAlignment="Right" VerticalAlignment="Center" Source="pack://application:,,,/ButtonImage/Стрелка_Вправо.png"></Image>
+        <Image Margin="30,0,0,0" MouseDown="Image_MouseDown_1"  Height="100" HorizontalAlignment="Left" VerticalAlignment="Center" Source="pack://application:,,,/ButtonImage/Стрелка_Влево.png"></Image>
+    </Grid>
+</Page>

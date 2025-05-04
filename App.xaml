@@ -1,0 +1,16 @@
+﻿<Application x:Class="Snake.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Snake"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="BackGround" Color="#1e1445" />
+        <SolidColorBrush x:Key="Brush" Color="#3d2b84" />
+        <SolidColorBrush x:Key="ButtonColor" Color="#373952" />
+        <SolidColorBrush x:Key="Text" Color="#a2a5b6" />
+        <SolidColorBrush x:Key="LightPurple" Color="#6842ff" />
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="./resources/#Minecraft Ten font cyrillic"></Setter>
+        </Style>
+    </Application.Resources>
+</Application>

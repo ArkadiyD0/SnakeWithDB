@@ -1,0 +1,27 @@
+﻿<Page x:Class="Snake.Table"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Snake"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Table" KeyDown="Page_KeyDown" Focusable="True" x:Name="table">
+    <Page.Resources>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="{DynamicResource BackGround}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Text}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BackGround}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Page.Resources>
+    <Grid  Background="{DynamicResource BackGround}">
+        <DataGrid Focusable="False" Background="{DynamicResource BackGround}" Foreground="{DynamicResource BackGround}" x:Name="RecordsDataGrid" FontFamily="./resources/#Minecraft Ten font cyrillic" AutoGenerateColumns="False" IsReadOnly="True" Margin="10">
+            <DataGrid.Columns  >
+                <DataGridTextColumn  Header="ID игрока" Binding="{Binding PlayerID}" Width="*"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
+                <DataGridTextColumn  Header="Очки" Binding="{Binding Points}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
