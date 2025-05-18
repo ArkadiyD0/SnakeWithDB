@@ -31,6 +31,7 @@ namespace Snake
                 PlayerLogGrid.Visibility = Visibility.Visible;
                 Loggout.Visibility = Visibility.Visible;
             }
+            if (IsLoggin == false) { Skins.IsEnabled = false; }
            
         }
     

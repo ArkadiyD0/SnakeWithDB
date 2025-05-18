@@ -59,14 +59,14 @@ namespace Snake
                     Login = LoginReg.Text,
                     Password = PasswordReg.Text,
                     Email = EmailReg.Text,
-                    Points = 0,
+                    Points = 10,
                 };
                 App.db.Players.Add(player);
                 App.db.SaveChanges();
                 Inventory inventory = new Inventory()
                 {
                     PlayerID = player.PlayerID, // Связываем с игроком
-                    Skin1 = false,
+                    Skin1 = true,
                     Skin2 = false,
                     Skin3 = false
                 };
