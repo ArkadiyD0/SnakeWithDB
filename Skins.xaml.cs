@@ -21,28 +21,74 @@ namespace Snake
     /// </summary>
     public partial class Skins : Page
     {
+
+
         private const int SnakeSquareSize = 30;
         private const int CanvasWidth = 300;
         private const int CanvasHeight = 200;
         public static int SkinI = 1;
-        private string PathFood = Game.PathFood;
-        private string PathSnakeHead = Game.PathSnakeHead;
-        private string PathSnakeBody = Game.PathSnakeBody;
+        
+        private string PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
+        private string PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
+        private string PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";      
         private Image foodEater;
         private Image foodImage;
         private Image BodySkin;
         public Skins()
         {
+
             InitializeComponent();
+
             SkinsGenerateBoard();
             PlaceFood();
             PlaceEater();
             PlaceBodyEater();
-            TB_skin.Text = "Скин #" + SkinI.ToString();
-            skins.Focus(); 
+            TB_skin.Text = "Скин #" + SkinI.ToString() + " Цена: 500";
+            
+            skins.Focus();
+
+            YourPoints.Text = Registration.thisplayer.Points.ToString();
+            PODGRUZ();
+        }
+       public void PODGRUZ() 
+        {
+            if (Registration.thisplayerinv.Skin1 == false && SkinI == 1)
+            {
+                SelectGrid.IsEnabled = false;
+            }
+            else { SelectGrid.IsEnabled = true; }
+            if (Registration.thisplayerinv.Skin2 == false && SkinI == 2)
+            {
+                SelectGrid.IsEnabled = false;
+            }
+            else { SelectGrid.IsEnabled = true; }
+            if (Registration.thisplayerinv.Skin3 == false && SkinI == 3)
+            {
+                SelectGrid.IsEnabled = false;
+            }
+
+
+
+            if (Registration.thisplayerinv.Skin1 == true && SkinI == 1)
+            {
+                BuyGrid.Visibility = Visibility.Hidden;
+            }
+         
+            if (Registration.thisplayerinv.Skin2 == true && SkinI == 2)
+            {
+                BuyGrid.Visibility = Visibility.Hidden;
+            }
+           
+            if (Registration.thisplayerinv.Skin3 == true && SkinI == 3)
+            {
+                BuyGrid.Visibility = Visibility.Hidden;
+            }
+           
+
         }
         public void SkinsGenerateBoard()
         {
+            
             int rows = CanvasHeight / SnakeSquareSize;
             int columns = CanvasWidth / SnakeSquareSize;
             for (int row = 0; row < rows; row++)
@@ -114,13 +160,14 @@ namespace Snake
             if (1 <= SkinI && SkinI <= 3)
             {
                
-                Game.PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
-                Game.PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
-                Game.PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";
+                PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
+                PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
+                PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";
                 App.MainWindowFrame.Navigate(new Skins());
 
             }
             else { SkinI--; }
+           
         }
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
@@ -128,9 +175,9 @@ namespace Snake
             if (1 <= SkinI && SkinI <= 3)
             {
                
-                Game.PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
-                Game.PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
-                Game.PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";
+                PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
+                PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
+                PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";
                 App.MainWindowFrame.Navigate(new Skins());
 
             }
@@ -141,6 +188,42 @@ namespace Snake
             if (e.Key == Key.Escape)
             {
                 App.MainWindowFrame.Navigate(new MainMenu());
+            }
+        }
+
+        private void SelectGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Game.SkinJ = Skins.SkinI;
+        }
+
+        private void BuyGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            int? skinprice = 500;
+            if (SkinI == 2 && Registration.thisplayerinv.Skin2 == false)
+            {
+                int? pp = Registration.thisplayer.Points;
+                if (pp >= skinprice) 
+                {
+                    int? newPoints = pp - skinprice;
+                    Registration.thisplayer.Points = newPoints;
+                    Registration.thisplayerinv.Skin2 = true;
+                    App.db.SaveChanges();
+                    MessageBox.Show("Успех");
+                }
+               
+            }
+            if (SkinI == 3 && Registration.thisplayerinv.Skin3 == false)
+            {
+                int? pp = Registration.thisplayer.Points;
+                if (pp >= skinprice)
+                {
+                    int? newPoints = pp - skinprice;
+                    Registration.thisplayer.Points = newPoints;
+                    Registration.thisplayerinv.Skin3 = true;
+                    App.db.SaveChanges();
+                    MessageBox.Show("Успех");
+                }
+
             }
         }
     }

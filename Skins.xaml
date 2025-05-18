@@ -12,5 +12,17 @@
         <Canvas x:Name="SkinCanvas" Height="200" Width="300"></Canvas>
         <Image Margin="0,0,30,0" MouseDown="Image_MouseDown" Height="100" HorizontalAlignment="Right" VerticalAlignment="Center" Source="pack://application:,,,/ButtonImage/Стрелка_Вправо.png"></Image>
         <Image Margin="30,0,0,0" MouseDown="Image_MouseDown_1"  Height="100" HorizontalAlignment="Left" VerticalAlignment="Center" Source="pack://application:,,,/ButtonImage/Стрелка_Влево.png"></Image>
+        <Grid MouseDown="SelectGrid_MouseDown" x:Name="SelectGrid" Width="200" Height="60" VerticalAlignment="Bottom" Margin="0,0,0,50">
+            <Rectangle Fill="{DynamicResource ButtonColor}" RadiusX="10" RadiusY="10"></Rectangle>
+            <TextBlock Foreground="{DynamicResource Text}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16">Выбрать</TextBlock>
+        </Grid>
+        <Grid MouseDown="BuyGrid_MouseDown" x:Name="BuyGrid" Width="200" Height="60" VerticalAlignment="Bottom" Margin="0,0,0,120">
+            <Rectangle Fill="{DynamicResource ButtonColor}" RadiusX="10" RadiusY="10"></Rectangle>
+            <TextBlock Foreground="{DynamicResource Text}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16">Купить</TextBlock>
+        </Grid>
+        <Grid  Width="200" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="15">
+            <Rectangle Fill="{DynamicResource ButtonColor}" RadiusX="10" RadiusY="10"></Rectangle>
+            <TextBlock x:Name="YourPoints" Foreground="{DynamicResource Text}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"></TextBlock>
+        </Grid>
     </Grid>
 </Page>

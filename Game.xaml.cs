@@ -17,9 +17,10 @@ namespace Snake
     /// </summary>
     public partial class Game : Page
     {
-        public static string PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Skins.SkinI + ".png";
-        public static string PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Skins.SkinI + ".png";
-        public static string PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Skins.SkinI + ".png";
+        public static int SkinJ = 1;
+        public string PathFood = "pack://application:,,,/Skins/" + "SkinFood" + Game.SkinJ + ".png";
+        public string PathSnakeHead = "pack://application:,,,/Skins/" + "SkinEat" + Game.SkinJ + ".png";
+        public string PathSnakeBody = "pack://application:,,,/Skins/" + "SkinBody" + Game.SkinJ + ".png";
         public static SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#3d2b84"));
         public static SolidColorBrush color2 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#373952"));
         public static SolidColorBrush color3 = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7B68EE"));
@@ -60,6 +61,7 @@ namespace Snake
         public Game()
         {
             InitializeComponent();
+            
         }
 
         private void InitianalGame()
@@ -499,6 +501,8 @@ namespace Snake
             {
                 UpdatePlayerRecord(Registration.thisplayer.PlayerID, Registration.thisplayer.Login, _score);
             }
+            Registration.thisplayer.Points = Registration.thisplayer.Points + _score;
+            App.db.SaveChanges();
             tbRestart.Visibility = Visibility.Visible;
             RestartButton.Visibility = Visibility.Visible;
         }

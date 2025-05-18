@@ -40,7 +40,7 @@
             <Grid VerticalAlignment="Top" Background="{DynamicResource ButtonColor}" Height="60">
                 <Grid x:Name="RegGrid" MouseDown="Image_MouseDown_1" VerticalAlignment="Center" Margin="0,0,20,0" HorizontalAlignment="Right">
                     <Rectangle Height="40" Width="130"></Rectangle>
-                    <TextBlock>Регестрация</TextBlock>
+                    <TextBlock>Регистрация</TextBlock>
                 </Grid>
                 <Grid x:Name="LogginGrid" MouseDown="Grid_MouseDown" VerticalAlignment="Center" Margin="0,0,180,0" HorizontalAlignment="Right" >
                     <Rectangle Height="40" Width="130"></Rectangle>

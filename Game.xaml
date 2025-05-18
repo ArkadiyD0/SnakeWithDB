@@ -22,5 +22,6 @@
         <Button Background="{DynamicResource ButtonColor}" Click="Image_MouseDown" x:Name="tbRestart" Visibility="Hidden" Height="120" Width="120">
             <Image Visibility="Hidden"  x:Name="RestartButton" Width="100" Height="100" Source="pack://application:,,,/ButtonImage/Again.png"></Image>
         </Button>
+       
     </Grid>
 </Page>
